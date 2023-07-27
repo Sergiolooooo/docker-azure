@@ -1,0 +1,20 @@
+# Le decimos los instaladores que necesitamos tener en el contenedor
+FROM node:18-bullseye
+
+# Carpeta donde se reqiere que trabaje
+WORKDIR /app
+
+#El puerto donde queremos que corra nuestra aplicacion
+EXPOSE 8080
+
+
+#Copiamos todos los archivos . . desde, hasta
+COPY . .
+
+# Descargar todas la librerias del proyecto
+RUN npm install
+
+# Comando para la ejecucion del proyecto
+CMD ["npm", "start"]
+
+
